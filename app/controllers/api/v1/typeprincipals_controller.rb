@@ -3,7 +3,7 @@ class Api::V1::TypeprincipalsController < ApplicationController
 
 
   def index
-     @typeprincipal = Typeprincipal.order('nom asc')
+     @typeprincipal = Typeprincipal.order('nom asc').page  params[:page]
      render json:  @typeprincipal
   end
 

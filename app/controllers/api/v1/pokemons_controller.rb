@@ -2,15 +2,16 @@ class Api::V1::PokemonsController < ApplicationController
   before_action :set_pokemon, only: [:show, :update, :destroy]
   #after_action :set_param_defaut, only: [:create]
 
-  has_scope :page, default: 0
-  has_scope :per, default: 50
+  
 
   # GET /pokemons
   def index
-    @pokemons = Pokemon.order('numero asc')
+    #@pokemons = Pokemon.order('numero asc')
+    #@pokemons = Pokemon.page params[:page]
     #render json: {data: @pokemons},status: :ok
     #@pokemons = Pokemon.page(current_page).per(per_page)     
 
+    @pokemons = Pokemon.order('numero asc').page  params[:page]
     render json: @pokemons
   end
 

@@ -10,6 +10,8 @@ class Pokemon < ApplicationRecord
   belongs_to :typesecondaire,required:false
   belongs_to :generation, required: true
 
+  paginates_per 20  
+
   def total   
     
     @total = (hp + attack + defense + speattack + spedefense + speed)

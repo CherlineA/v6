@@ -40,7 +40,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'active_model_serializers', '~> 0.10.12'
 gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
 gem 'kaminari', '~> 1.2', '>= 1.2.1'
+gem 'pager_api', '~> 0.3.2'
+gem 'pagy', '~> 4.8'
 gem 'has_scope', '~> 0.8.0'
 gem 'jbuilder', '~> 2.11', '>= 2.11.2'
-
 gem 'json-api', '~> 0.1.1'

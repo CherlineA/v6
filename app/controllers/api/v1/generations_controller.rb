@@ -3,7 +3,7 @@ class Api::V1::GenerationsController < ApplicationController
 
 
   def index
-     @generation = Generation.order('nom asc')
+     @generation = Generation.order('nom asc').page  params[:page]
      render json: @generation
   end
 
