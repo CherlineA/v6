@@ -1,4 +1,5 @@
 class Api::V1::PokemonsController < ApplicationController
+  ALLOWED_DATA = %[numero, name, hp, attack, defense, speattack, spedefense, speed,  typeprincipal_id, typesecondaire_id, generation_id].freeze
   before_action :set_pokemon, only: [:show, :update, :destroy]
   #after_action :set_param_defaut, only: [:create]
 
@@ -23,7 +24,11 @@ class Api::V1::PokemonsController < ApplicationController
 
   # POST /pokemons
   def create
+    #poke = json_payload.select {|p| ALLOWED_DATA.include?(k) }
+    #@pokemon = Pokemon.new(poke)
     @pokemon = Pokemon.new(pokemon_params)
+
+
 
     if @pokemon.save
       render json: {Message: 'Le pokemon suivant a été crée',data: @pokemon},status: :ok

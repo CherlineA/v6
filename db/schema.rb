@@ -13,22 +13,22 @@
 ActiveRecord::Schema.define(version: 2021_06_10_013323) do
 
   create_table "generations", force: :cascade do |t|
-    t.string "nom"
+    t.string "nom", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "pokemons", force: :cascade do |t|
     t.integer "numero"
-    t.string "name"
-    t.integer "total"
-    t.integer "hp"
-    t.integer "attack"
-    t.integer "defense"
-    t.integer "speattack"
-    t.integer "spedefense"
-    t.integer "speed"
-    t.boolean "legendary"
+    t.string "name", null: false
+    t.integer "total", default: 0
+    t.integer "hp", null: false
+    t.integer "attack", null: false
+    t.integer "defense", null: false
+    t.integer "speattack", default: 0
+    t.integer "spedefense", default: 0
+    t.integer "speed", default: 0
+    t.boolean "legendary", default: false
     t.integer "typeprincipal_id", null: false
     t.integer "typesecondaire_id"
     t.integer "generation_id", null: false
@@ -40,13 +40,13 @@ ActiveRecord::Schema.define(version: 2021_06_10_013323) do
   end
 
   create_table "typeprincipals", force: :cascade do |t|
-    t.string "nom"
+    t.string "nom", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "typesecondaires", force: :cascade do |t|
-    t.string "nom"
+    t.string "nom", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

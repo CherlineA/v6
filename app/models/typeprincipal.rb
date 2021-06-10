@@ -1,5 +1,5 @@
 class Typeprincipal < ApplicationRecord
-	validates :nom, presence:true, uniqueness:true
+	validates :nom, presence:{ message: 'Le nom du type de pokemon est obligatoire'}, uniqueness:true
 	 has_many :pokemons, dependent: :destroy
 	 paginates_per 20  
 end
